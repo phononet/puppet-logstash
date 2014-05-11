@@ -34,9 +34,19 @@ define logstash::configfile(
   $order = 10
 ) {
 
+  $type_name = split ( $name, '__' )
+  if $content {
+    case $type_name[ 0 ] {
+      /output|input/:  { $content_real = template ( "${module_name}/logstash.conf.erb" ) }
+      default:         { $content_real = $content }
+    }
+  } else {
+    $content_real = undef
+  }
+
   file_fragment { $name:
     tag     => "LS_CONFIG_${::fqdn}",
-    content => $content,
+    content => $content_real,
     source  => $source,
     order   => $order,
     before  => [ File_concat['ls-config'] ]

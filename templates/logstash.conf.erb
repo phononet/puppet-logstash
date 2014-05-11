@@ -1,0 +1,9 @@
+<% if @content -%>
+<%= @type_name[ 0 ] %> {
+  <%= @type_name[ 1 ] %> {
+<% @content.each do | key, value | -%>
+    <%= key %> => <% if value.is_a?(String) -%>"<%= value %>"<% else -%><%= value %><% end %>
+<% end -%>
+  }
+}
+<% end -%>
