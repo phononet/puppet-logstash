@@ -19,7 +19,7 @@ This overview shows you which Puppet module and Logstash version work together.
     ------------------------------------
     | 0.4.0 - 0.4.2 | 1.2.x - 1.3.x    |
     ------------------------------------
-    | 0.5.0         | 1.4.x            |
+    | 0.5.0 - 1.5.1 | 1.4.1            |
     ------------------------------------
 
 ## Important notes
@@ -112,7 +112,7 @@ via contrib_package_url:
 
      class { 'logstash':
        install_contrib => true,
-       contrib_package_install => 'package_url => 'http://download.elasticsearch.org/logstash/logstash/packages/centos/logstash-contrib-1.4.0-1_centos.noarch.rpm'
+       contrib_package_url => 'http://download.elasticsearch.org/logstash/logstash/packages/centos/logstash-contrib-1.4.0-1_centos.noarch.rpm'
      }
 
 ## Configuration Overview

@@ -47,6 +47,10 @@ describe "Logstash class:" do
       its(:content) { should match /[0-9]+/ }
     end
 
+    it 'Show all running logstash processes' do
+      shell('ps auxfw | grep logstash | grep -v grep')
+    end
+
   end
 
   context "Clean" do
@@ -88,6 +92,10 @@ describe "Logstash class:" do
       its(:content) { should match /[0-9]+/ }
     end
 
+    it 'Show all running logstash processes' do
+      shell('ps auxfw | grep logstash | grep -v grep')
+    end
+
   end
 
   context "Clean" do
@@ -127,6 +135,10 @@ describe "Logstash class:" do
     describe file(pid_file) do
       it { should be_file }
       its(:content) { should match /[0-9]+/ }
+    end
+
+    it 'Show all running logstash processes' do
+      shell('ps auxfw | grep logstash | grep -v grep')
     end
 
   end

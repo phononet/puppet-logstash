@@ -39,11 +39,8 @@ describe "logstash class:" do
       its(:content) { should match /[0-9]+/ }
     end
 
-    describe port(2000) do
-      it {
-        sleep 15
-        should be_listening
-      }
+    it 'Show all running logstash processes' do
+      shell('ps auxfw | grep logstash | grep -v grep')
     end
 
   end
